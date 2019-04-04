@@ -1,8 +1,8 @@
 # WebScraping
 
-# Componentes del grupo
+## Componentes del grupo
 - Paula Frías Arroyo
 - Miguel Artigues Canaves
 
-# Descripción ficheros
+## Descripción ficheros
 - 
