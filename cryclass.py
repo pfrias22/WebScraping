@@ -4,12 +4,14 @@ class Cryptoclass():
     cols = []
     rows = []
     time = ""
+
     # def __init__(self, columns):
     #     for c in columns:
     #         self.cols.append(c)
         
         # for r in rows:
         #     print(r)
+
     def setColumns(self, columns):
         self.cols = columns
         return columns
@@ -17,10 +19,6 @@ class Cryptoclass():
     def setRows(self, rows):
         self.rows = rows
         return rows
-
-    def setTime(self, time):
-        self.time = time
-        return time
 
     def setCSV(self):        
         my_file = Path("./cryptocurrencies.csv")

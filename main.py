@@ -8,14 +8,18 @@ response = urllib.request.urlopen("https://coinmarketcap.com")
 html = response.read()
 bs = BeautifulSoup(html, 'html.parser')
 tab = bs.find('table')
+t = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
 # COLUMNS
 head = tab.findAll('th')
 header = []
 for h in range(0,7):
-    if h != 0:
-        header.append(head[h].text)
+        if h != 0:
+                header.append(head[h].text)
+        else:
+                header.append("");
 
+header.append("timestamp")
 crypto.setColumns(header)
 
 # ROWS
@@ -33,7 +37,7 @@ for i in range(1,len(rest)):
 
 fila = []
 for r in range(0,len(resto)):
-        for j in range(2,9):
+        for j in range(0,9):
                 if j == 2 and type(resto[r][j+1]) is str and not (any(char.isdigit() for char in resto[r][j+1])):
                         fila.append(resto[r][j] + " " + resto[r][j+1])
                 elif (j == 3) and (any(char.isdigit() for char in resto[r][j])):
@@ -48,11 +52,11 @@ for r in range(0,len(resto)):
                         fila.append(resto[r][j+1])
                 elif (j == 8) and (any(char.isdigit() for char in resto[r][3])):
                         fila.append(resto[r][j])
-                elif (j != 3) and (j != 7) and (j != 8):
-                        fila.append(resto[r][j]) 
+                elif (j != 3) and (j != 7) and (j != 8) and (j != 1):
+                        fila.append(resto[r][j])
+        fila.append(t)
         body.append(fila)  
         fila = []
 
 crypto.setRows(body)
-crypto.setTime(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
 crypto.setCSV()
