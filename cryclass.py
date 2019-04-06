@@ -40,25 +40,35 @@ class Cryptoclass():
         resto = []
         for i in range(1,len(rest)):
             resto.append(rest[i].split())
-
+        print(resto)
         fila = []
         for r in range(0,len(resto)):
-                for j in range(0,9):
+                for j in range(0,10):
                         if j == 2 and type(resto[r][j+1]) is str and not (any(char.isdigit() for char in resto[r][j+1])):
                                 fila.append(resto[r][j] + " " + resto[r][j+1])
                         elif (j == 3) and (any(char.isdigit() for char in resto[r][j])):
                                 fila.append(resto[r][j]) 
+                        elif j == 6 and (any(char.isdigit() for char in resto[r][3])) and not (any(char.isdigit() for char in resto[r][j+2])):
+                                fila.append(resto[r][j] + " " + resto[r][j+1] + " " + resto[r][j+2])
                         elif j == 6 and not (any(char.isdigit() for char in resto[r][3])):
                                 fila.append(resto[r][j])
                         elif j == 6 and (any(char.isdigit() for char in resto[r][3])):
-                                fila.append(resto[r][j] + " " + resto[r][j+1])                
-                        elif (j == 7) and not (any(char.isdigit() for char in resto[r][3])):
+                                fila.append(resto[r][j] + " " + resto[r][j+1]) 
+                        elif (j == 7) and not (any(char.isdigit() for char in resto[r][3])) and not (any(char.isdigit() for char in resto[r][j+2])):
+                                fila.append(resto[r][j] + " " + resto[r][j+1] + " " + resto[r][j+2])
+                        elif (j == 7) and not (any(char.isdigit() for char in resto[r][3])) and (any(char.isdigit() for char in resto[r][j+2])):
                                 fila.append(resto[r][j] + " " + resto[r][j+1])
-                        elif (j == 8) and not (any(char.isdigit() for char in resto[r][3])):
-                                fila.append(resto[r][j+1])
-                        elif (j == 8) and (any(char.isdigit() for char in resto[r][3])):
+                        elif (j == 8) and (any(char.isdigit() for char in resto[r][j])):
                                 fila.append(resto[r][j])
-                        elif (j != 3) and (j != 7) and (j != 8) and (j != 1):
+                        elif (j == 8) and not (any(char.isdigit() for char in resto[r][j])) and not (any(char.isdigit() for char in resto[r][j+1])):
+                                fila.append(resto[r][j+2])
+                        elif (j == 8) and not (any(char.isdigit() for char in resto[r][3])) and (any(char.isdigit() for char in resto[r][j+1])):
+                                fila.append(resto[r][j+1])
+                        elif (j == 8) and (any(char.isdigit() for char in resto[r][3])) and not (any(char.isdigit() for char in resto[r][j])):
+                                fila.append(resto[r][j+1])
+                        elif (j == 9) and not (any(char.isdigit() for char in resto[r][3])) and (any(char.isdigit() for char in resto[r][j])) and (any(char.isdigit() for char in resto[r][j-1])):
+                                fila.append(resto[r][j+1])
+                        elif (j != 3) and (j != 7) and (j != 8) and (j != 1) and (j != 9) and (j != 10):
                                 fila.append(resto[r][j])
                 fila.append(self.time)
                 body.append(fila)  
