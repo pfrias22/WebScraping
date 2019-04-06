@@ -1,5 +1,7 @@
 from cryclass import Cryptoclass
 
-crypto = Cryptoclass()
-crypto.scraping()
-crypto.setCSV()
+while True:
+    crypto = Cryptoclass()
+    crypto.scraping()
+    crypto.setCSV()
+    time.sleep(60) # Delay for 1 minute (60 seconds). 
