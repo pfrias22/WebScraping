@@ -5,6 +5,11 @@
 - Miguel Artigues Canaves
 
 ## Descripción ficheros
+### VERSION Paula Frías
+En esta versión se guardan los datos con formato tabular en un único fichero csv en el que se irán añadiendo los datos en cada ejecución.
+- cryclass.py: clase que contiene las funciones para realizar web scraping y almacenar los datos en formato CSV.
+- main.py: fichero principal que invoca a la clase `cryclass.py` para realizar el web scraping.
+
 ### VERSION2
 Esta versión hace un guardado de los datos en un estructura de carpetas por año, mes y día. Contiene opción para plotear datos.
   - cryclass.py: contiene las funciones para scrapear, guardar y plotear datos.
