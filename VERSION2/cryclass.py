@@ -15,9 +15,11 @@ class Cryptoclass:
     def __init__(self):
         self.page = "https://coinmarketcap.com/"
         self.path_output = "/home/miquel/Escritorio/UOC/Q2_18_19/TCVD/PRACTICA1/VERSION2/OUTPUT"
+        self.monedas = ["Bitcoin", "Ethereum", "XRP", "Litecoin", "Bitcoin Cash"]
+        self.columnas_a_extraer = ['Name', 'MarketCap', 'Price','Volume24h', 'CirculatingSupply', 'Change24h','timestamp']
         
     def createCSV(self, filename):
-        df = pd.DataFrame(columns=['Name', 'MarketCap', 'Price','Volume24h', 'CirculatingSupply', 'Change24h','timestamp'])
+        df = pd.DataFrame(columns=self.columnas_a_extraer)
         df.to_csv(filename)
 
     def updateDB(self, df, current_time): 
@@ -50,13 +52,13 @@ class Cryptoclass:
             if valor is not None:
                 linea.append(valor)
             else:
-                if len(linea) == 6 and linea[0] in ["Bitcoin", "Ethereum", "XRP", "Litecoin", "Bitcoin Cash"]:
+                if len(linea) == 6 and linea[0] in self.monedas:
                     linea.append(current_time)
                     datos.append(linea)
                 linea = []
 
         df = pd.DataFrame(datos) 
-        df.columns = ['Name', 'MarketCap', 'Price','Volume24h', 'CirculatingSupply', 'Change24h', 'timestamp']
+        df.columns = self.columnas_a_extraer
         cols = ['MarketCap', 'Price','Volume24h', 'CirculatingSupply']
         df[cols] = df[cols].round(1) # estandarizamos a un decimal
         
