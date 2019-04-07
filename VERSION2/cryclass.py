@@ -8,9 +8,6 @@ from datetime import datetime
 import requests
 
 class Cryptoclass:
-    cols = []
-    rows = []
-    time = ""
     
     def __init__(self):
         self.page = "https://coinmarketcap.com/"
