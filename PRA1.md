@@ -6,7 +6,7 @@ El contexto en que se ha recolectado la información ha sido en base a una de la
 
 Nuestro contexto se ha centrado únicamente en el ranking actual de criptomonedas, sus precios y capitalizaciones de mercado actualizado en tiempo real.
 
-En la versión de Paula Frías se recogen las 100 primeras criptomonedas del ranking de coinmarketcap, y en la versión 2 (realizada por Miguel Artigues) se recolectan solo las monedas indicadas por parámetro. 
+En la versión 1 se recogen las 100 primeras criptomonedas del ranking de coinmarketcap, y en la versión 2 se recolectan solo las monedas indicadas por parámetro con el objetivo de tener siempre información de las mismas monedas (evitar tener información solo de ciertos momentos temporales de las monedas cercanas a la posición 100 del ranking).
 
 ## TÍTULO
 
