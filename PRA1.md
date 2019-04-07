@@ -6,7 +6,7 @@ El contexto en que se ha recolectado la información ha sido en base a una de la
 
 Nuestro contexto se ha centrado únicamente en el ranking actual de criptomonedas, sus precios y capitalizaciones de mercado actualizado en tiempo real.
 
-En la versión de Paula Frías se recogen las 100 primeras criptomonedas del ranking de coinmarketcap, y en la versión 2 (realizada por Miguel Artigues) se recolectan las 5 primeras de dicho ranking.
+En la versión de Paula Frías se recogen las 100 primeras criptomonedas del ranking de coinmarketcap, y en la versión 2 (realizada por Miguel Artigues) se recolectan solo las monedas indicadas por parámetro. 
 
 ## TÍTULO
 
@@ -18,7 +18,7 @@ El titulo de este dataset podría ser `CryptoCurrencyRanking`.
 El conjunto de datos contiene el ranking de las 100 primeras criptomendas en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python, para conseguir un modelo tabular en formato CSV.
 
 ***Versión 2***
-El conjunto de datos contiene el ranking de las 5 primeras criptomendas en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python. En este caso, la creación de los CSV se realiza de forma jerárquica mediante carpetas basadas en año, mes día.
+El conjunto de datos contiene el ranking de las criptomendas indicadas por parámetro en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python. En este caso, la creación de los CSV se realiza de forma jerárquica mediante una estructura de carpetas basadas en año, mes y día.
 
 ## REPRESENTACIÓN GRÁFICA
 
@@ -66,7 +66,7 @@ Todo esto se realizará en un bucle que se lanzará cada minuto.
 ***Versión 2***
 En la versión 2, generamos un conjunto de datos con la cabecera correspondiente a los datos que vamos a almacenar.
 
-Tras el paso anterior, obtenemos el html de la página web mediante el uso del paquete `BeautifulSoup` accediendo a las etiquetas `td`.
+Tras el paso anterior, obtenemos el html de la página web mediante el uso del paquete `BeautifulSoup` accediendo a las etiquetas `td`. De los objetos encontrados, nos quedamos solo con los que contienen información (ignoramos los que tienen valor "None"). Acto seguido también comprobamos que el objeto obtenido contiene el número de valores adecuado y si es así lo añadimos al dataset. Una vez se han recogido los datos de todas la monedas indicadas, se comprueba si ya existe el fichero de datos correspondiente a la fecha de recogida. En caso positivo se le añaden las líneas obtenidas. De lo contrario lo creamos y le añadimos las líneas.
 
 Todo esto se realizará en un bucle que se lanzará cada minuto.
 
@@ -80,8 +80,10 @@ Este conjunto de datos es interesante ya que de esta manera podemos disponer de 
 
 Las preguntas que se pretenden responder serían las siguientes:
 
-- ¿Qué criptomoneda va a sufrir una mayor devaluación porque Reino Unido abandone la Unión Europea?
-- ¿En qué criptomoneda deberíamos invertir para conseguir x beneficio en y tiempo?
+- Hacer predicciones sobre la tendencia y los cambios que sufriran los valores de las criptomonedas para así decidir cuando es un buen momento para invertir.
+- Relacionar cambios en los valores de las criptomonedas con eventos. Podríamos preguntarnos por ejemplo que criptomoneda va a sufrir una mayor devaluación porque Reino Unido abandone la Unión Europea.
+
+Además se puede utilizar el código para programar avisos en función de ciertos comportaminetos como cambios abruptos de valores.
 
 ## LICENCIA
 
