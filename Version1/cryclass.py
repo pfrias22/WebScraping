@@ -2,6 +2,7 @@ from pathlib import Path
 import csv
 import urllib.request
 from bs4 import BeautifulSoup
+import urllib.robotparser
 import datetime
 
 class Cryptoclass():
@@ -11,6 +12,15 @@ class Cryptoclass():
 
     def __init__(self):
         self.page = "https://coinmarketcap.com/"
+
+    def getRobots(self):
+        queue = [self.page]
+        robotsUrl = self.page + "robots.txt"
+        parse = urllib.robotparser.RobotFileParser()
+        parse.set_url(robotsUrl)
+        parse.read()
+        if parse.can_fetch('*',queue[0]):
+                return True
 
     def scraping(self):
         response = urllib.request.urlopen(self.page)

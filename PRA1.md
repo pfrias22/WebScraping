@@ -22,11 +22,8 @@ El conjunto de datos contiene el ranking de las criptomendas indicadas por pará
 
 ## REPRESENTACIÓN GRÁFICA
 
-***Representación gráfica versión 1***
-![Dataset v1](./images/v1.png)
-
-***Representación gráfica versión 2***
-![Dataset v2](./images/v2.png)
+***Representación gráfica***
+![Dataset](./images/v2.png)
 
 ## CONTENIDO
 
@@ -43,7 +40,7 @@ El conjunto de datos extraído se compone de los siguientes atributos:
 - timestamp: datetime en el que se ha recolectado la información.
 
 ***Periodo de tiempo del conjunto de datos***
-Al estar los datos recogidos a través de una web en tiempo real, el periodo de tiempo del conjunto de datos es únicamente sobre el instante de tiempo definido en la columna `timestamp`. 
+Al estar los datos recogidos a través de una web en tiempo real, el periodo de tiempo del conjunto de datos es únicamente sobre el instante de tiempo definido en la columna `timestamp`.
 
 ***¿Cómo se han recogido los datos?***
 Los datos se han recogido mediante el uso del paquete de Python `BeautifulSoup`.
@@ -72,7 +69,7 @@ Todo esto se realizará en un bucle que se lanzará cada minuto.
 
 ## AGRADECIMIENTOS
 
-Agradecer a Brandon Chez, fundador de CMC (CoinMarketCap), haber desarrollado esta página, la cual nos ha permitido contener en un dataset un histórico de las cotizaciones y precios de las primeras 100 o 5 criptomonedas.
+Agradecer a Brandon Chez, fundador de CMC (CoinMarketCap), haber desarrollado esta página, la cual nos ha permitido contener en un dataset un histórico de las cotizaciones y precios de las criptomonedas.
 
 ## INSPIRACIÓN
 

@@ -5,6 +5,7 @@ import pandas as pd
 import urllib.request
 from bs4 import BeautifulSoup
 from datetime import datetime
+import urllib.robotparser
 import requests
 
 class Cryptoclass:
@@ -15,6 +16,15 @@ class Cryptoclass:
         self.monedas = ["Bitcoin", "Ethereum", "XRP", "Litecoin", "Bitcoin Cash"]
         self.columnas_a_extraer = ['Name', 'MarketCap', 'Price','Volume24h', 'CirculatingSupply', 'Change24h','timestamp']
         
+    def getRobots(self):
+        queue = [self.page]
+        robotsUrl = self.page + "robots.txt"
+        parse = urllib.robotparser.RobotFileParser()
+        parse.set_url(robotsUrl)
+        parse.read()
+        if parse.can_fetch('*',queue[0]):
+                return True
+
     def createCSV(self, filename):
         df = pd.DataFrame(columns=self.columnas_a_extraer)
         df.to_csv(filename)
