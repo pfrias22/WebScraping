@@ -6,7 +6,9 @@ El contexto en que se ha recolectado la información ha sido en base a una de la
 
 Nuestro contexto se ha centrado únicamente en el ranking actual de criptomonedas, sus precios y capitalizaciones de mercado actualizado en tiempo real.
 
-En la versión 1 se recogen las 100 primeras criptomonedas del ranking de coinmarketcap, y en la versión 2 se recolectan solo las monedas indicadas por parámetro con el objetivo de tener siempre información de las mismas monedas (evitar tener información solo de ciertos momentos temporales de las monedas cercanas a la posición 100 del ranking).
+En la versión se recogen solo las monedas indicadas por parámetro con el objetivo de tener siempre información de las mismas monedas (evitar tener información solo de ciertos momentos temporales de las monedas cercanas a la posición 100 del ranking).
+
+El objetivo de esta práctica es permitir a los usuarios del conjunto de datos realizar un filtrado de las monedas que no son de su interés. Además, esta versión le permitirá realizar un análisis sobre los datos de las monedas que el usuario posea.
 
 ## TÍTULO
 
@@ -14,10 +16,6 @@ El titulo de este dataset podría ser `CryptoCurrencyRanking`.
 
 ## DESCRIPCIÓN DEL DATASET
 
-***Versión 1***
-El conjunto de datos contiene el ranking de las 100 primeras criptomendas en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python, para conseguir un modelo tabular en formato CSV.
-
-***Versión 2***
 El conjunto de datos contiene el ranking de las criptomendas indicadas por parámetro en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python. En este caso, la creación de los CSV se realiza de forma jerárquica mediante una estructura de carpetas basadas en año, mes y día.
 
 ## REPRESENTACIÓN GRÁFICA
@@ -42,26 +40,14 @@ El conjunto de datos extraído se compone de los siguientes atributos:
 ***Periodo de tiempo del conjunto de datos***
 Al estar los datos recogidos a través de una web en tiempo real, el periodo de tiempo del conjunto de datos es únicamente sobre el instante de tiempo definido en la columna `timestamp`.
 
+El periodo de actualización de los datos en la página `https://coinmarketcap.com/` se realiza cada minuto, tal y como se refleja [aquí](https://coinmarketcap.com/methodology/).
+
 ***¿Cómo se han recogido los datos?***
 Los datos se han recogido mediante el uso del paquete de Python `BeautifulSoup`.
 
 En primer lugar, hemos accedido a la página web `https://coinmarketcap.com/` y hemos almacenado todo el html en una variable.
 
-Tras esto, ambas versiones realizan el web scraping y el almacenamiento de maneras diferentes:
-
-***Versión 1***
-En la versión 1, se obtiene la cabecera del conjunto de datos directamente del html obtenido mediante el uso del paquete `BeautifulSoup` accediendo a las etiquetas `hr > td`. De esta manera obtendremos el nombre de las columnas que tendrá el conjunto de datos.
-
-A continuación, se obtendrá el cuerpo del conjunto de datos. El acceso esta vez será a las etiquetas `tr > td`.
-
-Una vez realizado esto, recorreremos el array bidimensional generado, para solo insertar los datos que nos interesan de los recogidos en el array.
-
-Una vez limpiado el array bidimensional, se generará un fichero CSV mediante la cabecera obtenida al principio, y el cuerpo del fichero obtenido en el paso anterior.
-
-Todo esto se realizará en un bucle que se lanzará cada minuto.
-
-***Versión 2***
-En la versión 2, generamos un conjunto de datos con la cabecera correspondiente a los datos que vamos a almacenar.
+Generamos un conjunto de datos con la cabecera correspondiente a los datos que vamos a almacenar.
 
 Tras el paso anterior, obtenemos el html de la página web mediante el uso del paquete `BeautifulSoup` accediendo a las etiquetas `td`. De los objetos encontrados, nos quedamos solo con los que contienen información (ignoramos los que tienen valor "None"). Acto seguido también comprobamos que el objeto obtenido contiene el número de valores adecuado y si es así lo añadimos al dataset. Una vez se han recogido los datos de todas la monedas indicadas, se comprueba si ya existe el fichero de datos correspondiente a la fecha de recogida. En caso positivo se le añaden las líneas obtenidas. De lo contrario lo creamos y le añadimos las líneas.
 
@@ -88,4 +74,4 @@ La licencia que va a tener este conjunto de datos va a ser:
 
 - Released Under CC0: Public Domain License
 
-Hemos seleccionado este tipo de licencia puesto que
+Hemos seleccionado este tipo de licencia puesto que de esta manera permitimos la libertad de copiar, modificar, y realizar distribuciones del mismo con el fin de ayudar a otros sin ningún ánimo de lucro.

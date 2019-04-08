@@ -12,7 +12,7 @@ class Cryptoclass:
     
     def __init__(self):
         self.page = "https://coinmarketcap.com/"
-        self.path_output = "/home/miquel/Escritorio/UOC/Q2_18_19/TCVD/PRACTICA1/VERSION2/OUTPUT"
+        self.path_output = "./OUTPUT"
         self.monedas = ["Bitcoin", "Ethereum", "XRP", "Litecoin", "Bitcoin Cash"]
         self.columnas_a_extraer = ['Name', 'MarketCap', 'Price','Volume24h', 'CirculatingSupply', 'Change24h','timestamp']
         
