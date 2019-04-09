@@ -2,33 +2,22 @@
 
 import os
 import pandas as pd
-import urllib.request
 from bs4 import BeautifulSoup
 from datetime import datetime
-import urllib.robotparser
 import requests
+from parametros import *
 
 class Cryptoclass:
     
     def __init__(self):
-        self.page = "https://coinmarketcap.com/"
-        self.path_output = "./OUTPUT"
-        self.monedas = ["Bitcoin", "Ethereum", "XRP", "Litecoin", "Bitcoin Cash"]
-        self.columnas_a_extraer = ['Name', 'MarketCap', 'Price','Volume24h', 'CirculatingSupply', 'Change24h','timestamp']
+        self.page = parameters_dict["pagina"]
+        self.path_output = parameters_dict["path_output"]
+        self.columnas = parameters_dict["columnas"]
+        self.monedas = parameters_dict["monedas"]
         
-    def getRobots(self):
-        queue = [self.page]
-        robotsUrl = self.page + "robots.txt"
-        parse = urllib.robotparser.RobotFileParser()
-        parse.set_url(robotsUrl)
-        parse.read()
-        if parse.can_fetch('*',queue[0]):
-            return True
-        else:
-            return False
-
+        
     def createCSV(self, filename):
-        df = pd.DataFrame(columns=self.columnas_a_extraer)
+        df = pd.DataFrame(columns=self.columnas)
         df.to_csv(filename)
 
     def updateDB(self, df, current_time): 
@@ -67,7 +56,7 @@ class Cryptoclass:
                 linea = []
 
         df = pd.DataFrame(datos) 
-        df.columns = self.columnas_a_extraer
+        df.columns = self.columnas
         cols = ['MarketCap', 'Price','Volume24h', 'CirculatingSupply']
         df[cols] = df[cols].round(1) # estandarizamos a un decimal
         
@@ -76,9 +65,9 @@ class Cryptoclass:
     def plot_values(self):
         import matplotlib.pyplot as plt
         name = input("introduce nombre moneda:")
-        year = input("introduce año:")
+        year = input("introduce anyo:")
         month = input("introduce mes:")
-        day = input("introduce día:")
+        day = input("introduce dia:")
         print("ploteamos datos...")
         path_data = os.path.join(self.path_output, year, month, day, "data.csv")
         if os.path.exists(path_data):
