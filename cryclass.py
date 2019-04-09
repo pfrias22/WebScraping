@@ -23,7 +23,9 @@ class Cryptoclass:
         parse.set_url(robotsUrl)
         parse.read()
         if parse.can_fetch('*',queue[0]):
-                return True
+            return True
+        else:
+            return False
 
     def createCSV(self, filename):
         df = pd.DataFrame(columns=self.columnas_a_extraer)
