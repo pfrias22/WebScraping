@@ -92,6 +92,6 @@ Hemos seleccionado este tipo de licencia puesto que de esta manera permitimos la
 
 | Contribuciones  | Firma  |
 |---|---|
-| Investigación previa  | PFA,   |
-| Redacción de las respuestas  | PFA,   |
-| Desarrollo código | PFA,  |
+| Investigación previa  | PFA,  MAC |
+| Redacción de las respuestas  | PFA,  MAC |
+| Desarrollo código | PFA, MAC |
