@@ -12,7 +12,7 @@ El objetivo de esta práctica es permitir a los usuarios del conjunto de datos r
 
 ## TÍTULO
 
-El titulo de este dataset podría ser `CryptoCurrencyRanking`.
+El titulo de este dataset podría ser `CryptoMarketCapitalization`.
 
 ## DESCRIPCIÓN DEL DATASET
 
@@ -67,6 +67,12 @@ Las preguntas que se pretenden responder serían las siguientes:
 - Relacionar cambios en los valores de las criptomonedas con eventos. Podríamos preguntarnos por ejemplo que criptomoneda va a sufrir una mayor devaluación porque Reino Unido abandone la Unión Europea.
 
 Además se puede utilizar el código para programar avisos en función de ciertos comportaminetos como cambios abruptos de valores.
+
+A continuación citamos algunos estudios llevados a cabo planteandose preguntas similares a las que acabamos de formular, los cuales han utilizado datasets muy similares al nuestro. Es sabido que en el mercado de las criptomonedas existe mucha especulación y esto conlleva mucha investigación para averiguar los motivos que conducen a cambios en los valores para poder predecir estos cambios.
+
+- 'Competition in cryptocurrency market (N Gandal, H Halaburda, 2016)'. En este estudio se intenrtan buscar relaciones entre los valores de las criptomonedas y el número de personas que poseen dichas criptomonedas debido a los llamados "network effects", es decir, buscan el valor que añade a las monedas el hecho de que las posean un número determinado de personas.
+
+-  'Negative bubbles and shocks in cryptocurrency markets (J Fry, E Cheah, 2016)'. En este estudio analizan el componente especulativo que hay detras de los valores de las criptomonedas y examinan los cambios abruptos en el mercado de criptomonedas.
 
 ## LICENCIA
 
