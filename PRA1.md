@@ -87,3 +87,11 @@ La licencia que va a tener este conjunto de datos va a ser:
 - Released Under CC0: Public Domain License
 
 Hemos seleccionado este tipo de licencia puesto que de esta manera permitimos la libertad de copiar, modificar, y realizar distribuciones del mismo con el fin de ayudar a otros sin ningún ánimo de lucro.
+
+## CONTRIBUCIONES AL TRABAJO
+
+| Contribuciones  | Firma  |
+|---|---|
+| Investigación previa  | PFA,   |
+| Redacción de las respuestas  | PFA,   |
+| Desarrollo código | PFA,  |
