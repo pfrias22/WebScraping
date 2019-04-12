@@ -7,7 +7,7 @@
 
 ## Descripción ficheros
 
-Esta versión hace un guardado de los datos en un estructura de carpetas por año, mes y día. Contiene opción para plotear datos.
+Esta versión realiza el almacenamiento de los datos en un estructura de carpetas por año, mes y día. Contiene opción para plotear datos.
 
 - cryclass.py: contiene las funciones para scrapear, guardar y plotear datos.
 - collect_data.py: contiene bucle para recoger datos.

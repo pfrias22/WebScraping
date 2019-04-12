@@ -3,8 +3,10 @@
 import os
 import pandas as pd
 from bs4 import BeautifulSoup
+import urllib.request
 from datetime import datetime
 import requests
+import urllib.robotparser
 from parametros import *
 
 class Cryptoclass:
@@ -15,6 +17,16 @@ class Cryptoclass:
         self.columnas = parameters_dict["columnas"]
         self.monedas = parameters_dict["monedas"]
         
+    def getRobots(self):
+        queue = [self.page]
+        robotsUrl = self.page + "robots.txt"
+        parse = urllib.robotparser.RobotFileParser()
+        parse.set_url(robotsUrl)
+        parse.read()
+        if parse.can_fetch('*',queue[0]):
+            return True
+        else:
+            return False
         
     def createCSV(self, filename):
         df = pd.DataFrame(columns=self.columnas)

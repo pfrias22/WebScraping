@@ -16,7 +16,9 @@ El titulo de este dataset podría ser `CryptoMarketCapitalization`.
 
 ## DESCRIPCIÓN DEL DATASET
 
-El conjunto de datos contiene el ranking de las criptomendas indicadas por parámetro en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python. En este caso, la creación de los CSV se realiza de forma jerárquica mediante una estructura de carpetas basadas en año, mes y día.
+El conjunto de datos contiene el ranking de las criptomendas indicadas por parámetro (ver fichero `parametros.py`) en base a sus precios y capitalizaciones de mercado, con una reseña de tiempo con el fin de poder ejecutar en más de una ocasión el fichero Python.
+
+En este caso, la creación de los CSV se realiza de forma jerárquica mediante una estructura de carpetas basadas en año, mes y día.
 
 ## REPRESENTACIÓN GRÁFICA
 
@@ -38,14 +40,18 @@ El conjunto de datos extraído se compone de los siguientes atributos:
 - timestamp: datetime en el que se ha recolectado la información.
 
 ***Periodo de tiempo del conjunto de datos***
+
 Al estar los datos recogidos a través de una web en tiempo real, el periodo de tiempo del conjunto de datos es únicamente sobre el instante de tiempo definido en la columna `timestamp`.
 
 El periodo de actualización de los datos en la página `https://coinmarketcap.com/` se realiza cada minuto, tal y como se refleja [aquí](https://coinmarketcap.com/methodology/).
 
 ***¿Cómo se han recogido los datos?***
+
 Los datos se han recogido mediante el uso del paquete de Python `BeautifulSoup`.
 
-En primer lugar, hemos accedido a la página web `https://coinmarketcap.com/` y hemos almacenado todo el html en una variable.
+En primer lugar, hemos accedido al fichero `robots.txt` de la página web `https://coinmarketcap.com/` para verificar las restricciones de la página y si no restringe el acceso, se procederá a la realización del web scraping.
+
+A continuación, hemos accedido a la página web `https://coinmarketcap.com/` y hemos almacenado todo el html en una variable.
 
 Generamos un conjunto de datos con la cabecera correspondiente a los datos que vamos a almacenar.
 
@@ -72,7 +78,7 @@ A continuación citamos algunos estudios llevados a cabo planteandose preguntas 
 
 - 'Competition in cryptocurrency market (N Gandal, H Halaburda, 2016)'. En este estudio se intenrtan buscar relaciones entre los valores de las criptomonedas y el número de personas que poseen dichas criptomonedas debido a los llamados "network effects", es decir, buscan el valor que añade a las monedas el hecho de que las posean un número determinado de personas.
 
--  'Negative bubbles and shocks in cryptocurrency markets (J Fry, E Cheah, 2016)'. En este estudio analizan el componente especulativo que hay detras de los valores de las criptomonedas y examinan los cambios abruptos en el mercado de criptomonedas.
+- 'Negative bubbles and shocks in cryptocurrency markets (J Fry, E Cheah, 2016)'. En este estudio analizan el componente especulativo que hay detras de los valores de las criptomonedas y examinan los cambios abruptos en el mercado de criptomonedas.
 
 ## LICENCIA
 
