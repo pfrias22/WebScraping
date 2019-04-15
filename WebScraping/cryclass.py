@@ -7,6 +7,7 @@ import urllib.request
 from datetime import datetime
 import requests
 import urllib.robotparser
+import os
 from parametros import *
 
 class Cryptoclass:
@@ -81,7 +82,10 @@ class Cryptoclass:
         month = input("introduce mes:")
         day = input("introduce dia:")
         print("ploteamos datos...")
-        path_data = os.path.join(self.path_output, year, month, day, "data.csv")
+        mypath = os.getcwd()
+        mp = os.path.join(mypath, self.path_output)
+        path_data = os.path.join(mp, year, month, day, "data.csv")
+        #path_data = os.path.join(self.path_output, year, month, day, "data.csv")
         if os.path.exists(path_data):
             df = pd.read_csv(path_data)
             # seleccionamos las filas correspondientes a la moneda deseada

@@ -23,7 +23,14 @@ En este caso, la creación de los CSV se realiza de forma jerárquica mediante u
 ## REPRESENTACIÓN GRÁFICA
 
 ***Representación gráfica***
+
+![Dataset Representacion](./images/esquema_funcionamiento_web_scraping.png)
+
 ![Dataset](./images/v2.png)
+
+***Gráfico de la evolución del precio de una de las monedas del conjunto de datos***
+
+![Gráfico](./images/Figure_1.png)
 
 ## CONTENIDO
 
